@@ -2,7 +2,7 @@ import math,random
 
 class SudokuGenerator:
 
-    # Initialize SudokuGenerator :)
+    # Initialize SudokuGenerator
     def __init__(self, row_length, removed_cells):
         self.row_length = row_length
         self.removed_cells = removed_cells
@@ -20,7 +20,6 @@ class SudokuGenerator:
                 print(self.board[i][j], end=" ")
             print()
 
-
 # Determines if num is contained in the specified row (horizontal) of the board
     def valid_in_row(self, row, num):
         for col in range(self.row_length):
@@ -29,13 +28,12 @@ class SudokuGenerator:
         return True
 
 
-# Determines if num is contained in the specified column (vertical) of the board
+# Determines if num is contained in the specified column (vertical) of the board.
     def valid_in_col(self, col, num):
         for row in range(self.row_length):
             if self.board[row][col] == num:
                 return False
         return True
-
 
 # Determines if num is contained in the 3x3 box specified on the board
     def valid_in_box(self, row_start, col_start, num):
@@ -46,6 +44,7 @@ class SudokuGenerator:
                 if self.board[i][j] == num:
                     return False
         return True
+
     '''
     Determines if it is valid to enter num at (row, col) in the board
     This is done by checking that num is unused in the appropriate, row, column, and box
@@ -184,8 +183,21 @@ class SudokuGenerator:
                 removed.add((row, column))
         return self
 
+'''
+DO NOT CHANGE
+Provided for students
+Given a number of rows and number of cells to remove, this function:
+1. creates a SudokuGenerator
+2. fills its values and saves this as the solved state
+3. removes the appropriate number of cells
+4. returns the representative 2D Python Lists of the board and solution
 
-# Simply calls all of the necessary functions to generate the game
+Parameters:
+size is the number of rows/columns of the board (9 for this project)
+removed is the number of cells to clear (set to 0)
+
+Return: list[list] (a 2D Python list to represent the board)
+'''
 def generate_sudoku(size, removed):
     sudoku = SudokuGenerator(size, removed)
     sudoku.fill_values()
