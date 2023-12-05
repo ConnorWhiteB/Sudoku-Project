@@ -44,7 +44,7 @@ class SudokuGenerator:
                     return False
         return True
 
-    # Checks if a given function is valid.
+    # Checks if a given function is valid
     # Returns true if valid_in_col, valid_in_row and valid_in_box return true
     def is_valid(self, row, col, num):
         if self.valid_in_col(col, num) and self.valid_in_row(row, num) and self.valid_in_box(row, col, num):
