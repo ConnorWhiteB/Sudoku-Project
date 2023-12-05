@@ -203,7 +203,7 @@ class SudokuGenerator:
         # generates a random coordinate on the board and resets its value to 0
         # Removes appropriate cells from board
         removed = set()
-        #empty set to store coordinates of removed cells
+        # empty set to store coordinates of removed cells
 
         while len(removed) < removed_cell:
             row = random.randint(0, 8)
@@ -213,21 +213,7 @@ class SudokuGenerator:
                 removed.add((row, column))
         return self
 
-'''
-DO NOT CHANGE
-Provided for students
-Given a number of rows and number of cells to remove, this function:
-1. creates a SudokuGenerator
-2. fills its values and saves this as the solved state
-3. removes the appropriate number of cells
-4. returns the representative 2D Python Lists of the board and solution
 
-Parameters:
-size is the number of rows/columns of the board (9 for this project)
-removed is the number of cells to clear (set to 0)
-
-Return: list[list] (a 2D Python list to represent the board)
-'''
 def generate_sudoku(size, removed):
     sudoku = SudokuGenerator(size, removed)
     sudoku.fill_values()
