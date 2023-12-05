@@ -181,7 +181,7 @@ class SudokuGenerator:
 	Parameters: None
 	Return: None
     '''
-    def fill_values(self):
+    def fill_values(self): # calls diagonal and remaining to construct
         self.fill_diagonal()
         self.fill_remaining(0, self.box_length)
 
@@ -214,6 +214,7 @@ class SudokuGenerator:
         return self
 
 
+# Simply calls all of the necessary functions to generate the game
 def generate_sudoku(size, removed):
     sudoku = SudokuGenerator(size, removed)
     sudoku.fill_values()
