@@ -87,7 +87,7 @@ class SudokuGenerator:
 	row_start and col_start are the starting indices of the box to check
 	i.e. the box is from (row_start, col_start) to (row_start+2, col_start+2)
 
-	Return: None
+	Return: None.
     '''
     def fill_box(self, row_start, col_start):
         nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
