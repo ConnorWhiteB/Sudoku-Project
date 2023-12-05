@@ -1,3 +1,4 @@
+
 def place_number(self, value):
     # Iterate through each cell in the board
     for row in range(self.board_rows):
