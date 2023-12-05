@@ -34,7 +34,7 @@ class SudokuGenerator:
                 return False
         return True
 
-# Determines if num is contained in the 3x3 box specified on the board
+    # Determines if num is contained in the 3x3 box specified on the board
     def valid_in_box(self, row_start, col_start, num):
         box_row = row_start - row_start % int(math.sqrt(self.row_length))
         box_col = col_start - col_start % int(math.sqrt(self.row_length))
