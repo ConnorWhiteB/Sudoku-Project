@@ -1,6 +1,6 @@
 import pygame, sys
 from constants import *
-from board import Board
+from Board import Board
 from sudoku_generator import *
 
 
