@@ -24,10 +24,10 @@ BLACK = (0, 0, 0)
 
 
 class Cell:
-    def __init__(self, value, row, column, screen):
+    def __init__(self, value, row, col, screen):
         self.value = value
         self.row = row
-        self.column = column
+        self.col = col
         self.screen = screen
         self.select = False
         self.sketched_value = 0
@@ -35,7 +35,7 @@ class Cell:
         self.value = value
 
     def set_sketched_value(self, value):
-        self.sketched_value
+        self.sketched_value = value
 
     def draw(self, screen):
         #width and height of board with help of above constants
@@ -46,7 +46,7 @@ class Cell:
         Yboard_start = (HEIGHT - board_width) // 2 - 70
 
         # draws the rectangle
-        cell_rectangle = pygame.Rect(Xboard_start + self.column * CELL_SIZE, Yboard_start + self.row * CELL_SIZE,CELL_SIZE,CELL_SIZE,CELL_SIZE)
+        cell_rectangle = pygame.Rect(Xboard_start + self.col * CELL_SIZE, Yboard_start + self.row * CELL_SIZE,CELL_SIZE,CELL_SIZE,CELL_SIZE)
         pygame.draw.rect(screen, BLACK, cell_rectangle, CELL_LINE_WIDTH)
 
         if self.selected: # will draw the border thicker
@@ -55,13 +55,13 @@ class Cell:
         if self.value != 0 and self.sketched_value == 0: #Draws cell value
             cell_font = pygame.font.FONT(None, 55)
             cell_surf = cell_font.render (str(self.value), True, BLACK)
-            cell_rectangle = cell_surf.get_rect(center = (Xboard_start + self.column *CELL_SIZE + CELL_SIZE // 2,
+            cell_rectangle = cell_surf.get_rect(center = (Xboard_start + self.col *CELL_SIZE + CELL_SIZE // 2,
                                                      Yboard_start + self.row * CELL_SIZE + CELL_SIZE // 2))
             screen.blit(cell_surf, cell_rectangle)
 
-        if self.sketched_value != 0: # Draws calue based upon user input
+        if self.sketched_value != 0: # Draws value based upon user input
             cell_font = pygame.font.Font(None, 50)
             cell_surf = cell_font.render(str(self.sketched_value), True, USER_NUMBER_COLOR)
 
-            cell_rectangle = cell_surf.get_rect(center = ((Xboard_start + self.column * CELL_SIZE + CELL_SIZE // 2 )-12, (Yboard_start + self.row * CELL_SIZE + CELL_SIZE // 2) - 12 ))
+            cell_rectangle = cell_surf.get_rect(center = ((Xboard_start + self.col * CELL_SIZE + CELL_SIZE // 2 ) - 12, (Yboard_start + self.row * CELL_SIZE + CELL_SIZE // 2) - 12 ))
             screen.blit(cell_surf, cell_rectangle)
