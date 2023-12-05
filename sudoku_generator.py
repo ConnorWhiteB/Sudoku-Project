@@ -173,14 +173,6 @@ class SudokuGenerator:
                 self.board[row][col] = 0
         return False
 
-    '''
-    DO NOT CHANGE
-    Provided for students
-    Constructs a solution by calling fill_diagonal and fill_remaining
-
-	Parameters: None
-	Return: None
-    '''
     def fill_values(self): # calls diagonal and remaining to construct
         self.fill_diagonal()
         self.fill_remaining(0, self.box_length)
