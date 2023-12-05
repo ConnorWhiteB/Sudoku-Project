@@ -198,8 +198,12 @@ class SudokuGenerator:
 	Return: None
     '''
 
+
     def remove_cells(self, removed_cell):
+        # generates a random coordinate on the board and resets its value to 0
+        # Removes appropriate cells from board
         removed = set()
+        #empty set to store coordinates of removed cells
 
         while len(removed) < removed_cell:
             row = random.randint(0, 8)
