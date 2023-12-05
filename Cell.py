@@ -60,7 +60,7 @@ class Cell:
                                                      Yboard_start + self.row * CELL_SIZE + CELL_SIZE // 2))
             screen.blit(cell_surf, cell_rectangle)
 
-        if self.sketched_value != 0: # Draws value based upon user input
+        if self.sketched_value != 0:  # Draws value based upon user input
             cell_font = pygame.font.Font(None, 50)
             cell_surf = cell_font.render(str(self.sketched_value), True, USER_NUMBER_COLOR)
 
