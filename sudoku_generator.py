@@ -1,6 +1,4 @@
-import math
-import random
-
+import math,random
 
 class SudokuGenerator:
 
@@ -22,18 +20,21 @@ class SudokuGenerator:
                 print(self.board[i][j], end=" ")
             print()
 
+    # Determines if num is contained in the specified row (horizontal) of the board
     def valid_in_row(self, row, num):
         for col in range(self.row_length):
             if self.board[row][col] == num:
                 return False
         return True
 
+    # Determines if num is contained in the specified column (vertical) of the board
     def valid_in_col(self, col, num):
         for row in range(self.row_length):
             if self.board[row][col] == num:
                 return False
         return True
 
+# Determines if num is contained in the 3x3 box specified on the board
     def valid_in_box(self, row_start, col_start, num):
         box_row = row_start - row_start % int(math.sqrt(self.row_length))
         box_col = col_start - col_start % int(math.sqrt(self.row_length))
