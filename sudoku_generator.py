@@ -2,7 +2,7 @@ import math,random
 
 class SudokuGenerator:
 
-    # Initialize SudokuGenerator :)
+    # Initialize SudokuGenerator
     def __init__(self, row_length, removed_cells):
         self.row_length = row_length
         self.removed_cells = removed_cells
@@ -20,52 +20,22 @@ class SudokuGenerator:
                 print(self.board[i][j], end=" ")
             print()
 
-
-    '''
-	Determines if num is contained in the specified row (horizontal) of the board
-    If num is already in the specified row, return False. Otherwise, return True
-
-	Parameters:
-	row is the index of the row we are checking
-	num is the value we are looking for in the row
-	
-	Return: boolean
-    '''
-
+# Determines if num is contained in the specified row (horizontal) of the board
     def valid_in_row(self, row, num):
         for col in range(self.row_length):
             if self.board[row][col] == num:
                 return False
         return True
 
-    '''
-	Determines if num is contained in the specified column (vertical) of the board
-    If num is already in the specified col, return False. Otherwise, return True
 
-	Parameters:
-	col is the index of the column we are checking
-	num is the value we are looking for in the column
-	
-	Return: boolean
-    '''
+# Determines if num is contained in the specified column (vertical) of the board.
     def valid_in_col(self, col, num):
         for row in range(self.row_length):
             if self.board[row][col] == num:
                 return False
         return True
 
-    '''
-	Determines if num is contained in the 3x3 box specified on the board
-    If num is in the specified box starting at (row_start, col_start), return False.
-    Otherwise, return True
-
-	Parameters:
-	row_start and col_start are the starting indices of the box to check
-	i.e. the box is from (row_start, col_start) to (row_start+2, col_start+2)
-	num is the value we are looking for in the box
-
-	Return: boolean
-    '''
+# Determines if num is contained in the 3x3 box specified on the board
     def valid_in_box(self, row_start, col_start, num):
         box_row = row_start - row_start % int(math.sqrt(self.row_length))
         box_col = col_start - col_start % int(math.sqrt(self.row_length))
