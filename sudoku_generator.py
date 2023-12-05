@@ -16,7 +16,7 @@ class SudokuGenerator:
     # Displays the board to the console
     def print_board(self):
         for i, row in enumerate(self.board):
-            for j, column in enumerate(row):
+            for j, col in enumerate(row):
                 print(self.board[i][j], end=" ")
             print()
 
@@ -186,10 +186,10 @@ class SudokuGenerator:
 
         while len(removed) < removed_cell:
             row = random.randint(0, 8)
-            column = random.randint(0, 8)
-            if (row, column) not in removed and self[row][column]:
-                self[row][column] = 0
-                removed.add((row, column))
+            col = random.randint(0, 8)
+            if (row, col) not in removed and self.board[row][col]:
+                self.board[row][col] = 0
+                removed.add((row, col))
         return self
 
 
