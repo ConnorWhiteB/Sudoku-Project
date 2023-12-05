@@ -58,5 +58,5 @@ def check_board(self):
             # Check if the value in the cell is valid in its column, row, and box
             if self.valid_in_col(col, num) and self.valid_in_row(row, num) and self.valid_in_box(row, col, num):
                 return True
-    # If no conflicts are found, return False indicating an incorrect solution.
+    # If no conflicts are found, return False indicating an incorrect solution
     return False
